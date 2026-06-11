@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pratha ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#fff8f5;color:#333;overflow-x:hidden}
+.hero{height:100vh;background:url('1.jpeg') center/cover;position:relative;display:flex;justify-content:center;align-items:center;text-align:center}
+.hero:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.hero-content{position:relative;color:#fff;padding:20px}
+.hero h1{font-family:'Great Vibes',cursive;font-size:5rem}
+.btn,.music-btn{display:inline-block;margin-top:15px;padding:14px 28px;border:none;border-radius:30px;background:#d88c9a;color:#fff;text-decoration:none;cursor:pointer}
+section{padding:80px 10%}
+.title{text-align:center;font-family:'Great Vibes',cursive;color:#d88c9a;font-size:3rem;margin-bottom:30px}
+.carousel{max-width:1000px;margin:auto;position:relative}
+.slide{display:none;position:relative;border-radius:24px;overflow:hidden}
+.slide.active{display:block}
+.slide img{width:100%;height:700px;object-fit:cover}
+.caption{position:absolute;bottom:0;width:100%;padding:25px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.8));text-align:center}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:55px;height:55px;border:none;border-radius:50%;font-size:24px;cursor:pointer;background:rgba(255,255,255,.85)}
+.prev{left:-70px} .next{right:-70px}
+.letter{max-width:900px;margin:auto;background:#fff;padding:40px;border-radius:20px;line-height:2;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.final{text-align:center;padding:100px 20px}
+.infinity{font-size:100px;color:#d88c9a}
+.floating-emoji{position:fixed;bottom:-50px;pointer-events:none;z-index:9999;animation:floatEmoji linear forwards}
+@keyframes floatEmoji{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-120vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="auto"><source src="perfect.mp3" type="audio/mpeg"></audio>
+
+<div class="hero">
+<div class="hero-content">
+<h1>For Pratha ❤️</h1>
+<p>Before all the memories... there was you.</p>
+<a href="#memories" class="btn">Begin Our Story</a><br>
+<button class="music-btn" onclick="toggleMusic()">🎵 Our Song</button>
+</div>
+</div>
+
+<section id="memories">
+<h2 class="title">Our Year Together ❤️</h2>
+<div class="carousel">
+<button class="nav prev" onclick="moveSlide(-1)">❮</button>
+<div class="slide active"><img src="plushie.jpeg"><div class="caption">The girl who somehow made every day softer ❤️</div></div>
+<div class="slide"><img src="2.jpeg"><div class="caption">My favourite place became wherever you were.</div></div>
+<div class="slide"><img src="3.jpeg"><div class="caption">A thousand photos later, I'd still choose this smile.</div></div>
+<div class="slide"><img src="4.jpeg"><div class="caption">Every memory with you became a favourite memory.</div></div>
+<div class="slide"><img src="5.jpeg"><div class="caption">Warmth was never about the weather.</div></div>
+<div class="slide"><img src="letter.jpeg"><div class="caption">Every word means the world to me 💌</div></div>
+<div class="slide"><img src="6.jpeg"><div class="caption">12 June 2025 — The kiss I'll remember forever ❤️</div></div>
+<button class="nav next" onclick="moveSlide(1)">❯</button>
+</div>
+</section>
+
+<section>
+<h2 class="title">A Letter To You</h2>
+<div class="letter">
+
+Dear Pratha,<br><br>
+
+One year ago, we shared our first kiss.<br><br>
+
+Thank you for every smile, every memory, and every moment that made this year unforgettable.<br><br>
+
+My favorite memories aren't places or dates — they're simply the moments that had you in them.<br><br>
+
+All our overnight calls, conversations, fights too... they all are special for me because they all had you.<br><br>
+
+I love you and want to appreciate you for all the efforts you take for us and to ensure we stay happy.<br><br>
+
+I know there were ups and downs and fights... but everything is worth it if you're with me.<br><br>
+
+Thank you for my best 1 year which I can't forget a moment of...<br><br>
+
+∞<br><br>
+
+Happy First Kiss Anniversary ❤️<br><br>
+
+Me too !!<br><br>
+
+Prabal ❤️
+
+</div>
+</section>
+
+<div class="final">
+<div class="infinity">∞</div>
+<h2>Prabal ❤️ Pratha</h2>
+<p>12 June 2025 → Forever</p>
+</div>
+
+<script>
+const music=document.getElementById('bgMusic');
+music.volume=0.35;
+document.addEventListener('click',function start(){music.play().catch(()=>{});document.removeEventListener('click',start);});
+function toggleMusic(){music.paused?music.play():music.pause();}
+let current=0;
+const slides=document.querySelectorAll('.slide');
+function showSlide(i){slides.forEach(s=>s.classList.remove('active'));slides[i].classList.add('active');}
+function moveSlide(d){current+=d;if(current>=slides.length)current=0;if(current<0)current=slides.length-1;showSlide(current);}
+setInterval(()=>moveSlide(1),5000);
+const emojis=["💋","😘","🥰","😊","😍","❤️","💕","💖"];
+function createEmoji(){const e=document.createElement('div');e.className='floating-emoji';e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(20+Math.random()*30)+'px';e.style.animationDuration=(6+Math.random()*5)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),12000);}
+setInterval(createEmoji,500);
+</script>
+</body></html>
